@@ -23,7 +23,12 @@ public class ScoreMaster {
         int frameScore = 0;
         //
         for(int i = 1; i < rolls.Count; i += 2 ) {
-            if (rolls[i] < 10 && rolls[i - 1] < 10 && rolls[i] + rolls[i-1] != 10) {
+            if (rolls[i] + rolls[i - 1] == 10 && rolls.Count > i + 1) {
+                frameScore = rolls[i - 1] + rolls[i] + rolls[i + 1];
+                frameList.Add(frameScore);
+            } else if (rolls[i] + rolls[i - 1] == 10) {
+
+            } else if (rolls[i] < 10 && rolls[i - 1] < 10) {
                 frameScore = rolls[i] + rolls[i - 1];
                 frameList.Add(frameScore);
             }
